@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Video Access</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    /* Background Video */
+    #background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cover the whole area */
+      z-index: -1; /* Set behind other elements */
+      opacity: 0.7; /* Adjust opacity for effect */
+    }
+    /* Unlock Page Styling */
+    #unlock-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: rgb(207, 117, 191); /* Background overlay */
+      color: rgb(42, 0, 97);
+      text-align: center;
+    }
+    .unlock-box {
+      background: rgba(199, 167, 23, 0.8);
+      padding: 40px;
+      border-radius: 100px;
+      box-shadow: 40px 65px 100px rgb(167, 0, 103);
+      color: #000000;
+      font-size: 1.5em;
+    }
+    .unlock-box input[type="password"] {
+      width: 100%;
+      padding: 25px;
+      margin-top: 30px;
+      font-size: 1em;
+      border-radius: 40px;
+      border: 10px solid #ff0080;
+    }
+    .unlock-box button {
+      margin-top: 15px;
+      padding: 30px 40px;
+      font-size: 1em;
+      color: rgb(154, 87, 181);
+      background: #000000;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+    /* Video Page Styling */
+    #video-page {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Gift Box Styling */
+    #gift-box {
+      width: 400px;
+      height: 400px;
+      background: #fa0068;
+      position: relative;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      animation: bounce 1s ease-in-out infinite;
+    }
+    /* Bounce Effect */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    /* Video Styling */
+    #video-gallery {
+      display: none;
+      text-align: center;
+    }
+    #video-gallery video {
+      max-width: 150%;
+      height: 550px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Background Video -->
+<video id="background-video" autoplay loop muted>
+  <source src="video1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!-- Unlock Page -->
+<div id="unlock-page">
+  <div class="unlock-box">
+    <h1>𝐒𝐩𝐞𝐜𝐢𝐚𝐥 𝐂𝐨𝐝𝐞 𝐓𝐨 𝐀𝐜𝐜𝐞𝐬𝐬 🔓</h1>
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="checkPassword()">Unlock</button>
+  </div>
+</div>
+
+<!-- Video Page -->
+<div id="video-page">
+  <div id="gift-box" onclick="openGift()"></div>
+  <div id="video-gallery">
+    <h1>🩷 sᴘᴇᴄɪᴀʟ sᴜʀᴘʀɪsᴇ ғᴏʀ ʏᴏᴜ ᴅᴇᴀʀ 🩷</h1>
+    <h2>🪔𝓗𝓐𝓟𝓟𝓨 𝓓𝓘𝓦𝓐𝓛𝓘🪔</h2>
+    <video controls autoplay loop>
+      <source src="pd2304.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<script>
+  // Password Verification
+  function checkPassword() {
+    const password = document.getElementById('password').value;
+    if (password === "dhakkan") { // Change "123" to your desired password
+      document.getElementById('unlock-page').style.display = 'none'; // Hide unlock page
+      document.getElementById('video-page').style.display = 'flex'; // Show video page
+    } else {
+      alert("Incorrect password. Try again.");
+    }
+  }
+
+  // Open Gift Box and Reveal Video Gallery
+  function openGift() {
+    const giftBox = document.getElementById('gift-box');
+    giftBox.style.display = 'none'; // Hide gift box
+    document.getElementById('video-gallery').style.display = 'block'; // Show video gallery
+  }
+</script>
+
+</body>
+</html>
